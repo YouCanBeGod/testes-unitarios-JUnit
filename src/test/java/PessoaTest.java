@@ -7,7 +7,16 @@ public class PessoaTest {
 
     @Test
     void validarCalculoIdade() {
-        Pessoa pessoa = new Pessoa("Julia", LocalDate.of(2020, 1, 1));
-        Assertions.assertEquals(2, pessoa.getIdade());
+        Pessoa jessica = new Pessoa("Jéssica", LocalDate.of(2000, 1, 1));
+        Assertions.assertEquals(22, jessica.getIdade());
+    }
+
+    @Test
+    void validarMaioridade() {
+        Pessoa julia = new Pessoa("Julia", LocalDate.of(2000, 1, 1));
+        Assertions.assertTrue(julia.ehMaiorDeIdade());
+
+        Pessoa joao = new Pessoa("João", LocalDate.now());
+        Assertions.assertFalse(joao.ehMaiorDeIdade());
     }
 }
